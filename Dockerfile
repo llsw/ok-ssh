@@ -23,6 +23,7 @@ RUN npm bin -g
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN rpm -ivh epel-release-latest-7.noarch.rpm
 RUN yum -y install nginx && nginx -v
+RUN yum install -y nginx-mod-stream
 RUN ls -al /etc/nginx/
 RUN cat /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx/nginx.conf
