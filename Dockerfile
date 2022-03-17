@@ -29,15 +29,12 @@ RUN cat /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx/nginx.conf
 # RUN echo 'You can play the awesome Cloud NOW! - Message from Uncle LUO!' >/var/www/html/index.html
 ENV PATH /node-v12.18.1-linux-x64/bin:$PATH
-
-RUN echo 'wstunnel -s 0.0.0.0:8989 & ' >>/luo.sh
 # RUN echo 'service mysql restart' >>/luo.sh
 # RUN echo 'service apache2 restart' >>/luo.sh
-RUN ssh-keygen -A
-RUN echo '/usr/sbin/sshd -D' >>/luo.sh
-RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
-RUN echo root:uncleluo|chpasswd
-RUN chmod 755 /luo.sh
-RUN echo '/usr/sbin/nginx' >>/luo.sh
+RUN ssh-keygen -A 
+RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+RUN echo root:pp123|chpasswd
+COPY ./start.sh /start.sh
+RUN chmod 755 /start.sh
 EXPOSE 80
-CMD  /luo.sh
+CMD /start.sh
