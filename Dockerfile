@@ -18,7 +18,8 @@ RUN node -v
 # RUN yum -y install nodejs
 # RUN cat /etc/httpd/conf.modules.d/00-base.conf
 RUN npm install -g wstunnel
-RUN mkdir /run/sshd
+RUN npm bin -g
+# RUN mkdir /run/sshd
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN rpm -ivh epel-release-latest-7.noarch.rpm
 RUN yum -y install nginx && nginx -v
@@ -26,13 +27,15 @@ RUN ls -al /etc/nginx/
 RUN cat /etc/nginx/nginx.conf
 COPY ./nginx.conf /etc/nginx/nginx.conf
 # RUN echo 'You can play the awesome Cloud NOW! - Message from Uncle LUO!' >/var/www/html/index.html
+ENV PATH /node-v12.18.1-linux-x64/bin:$PATH
+
 RUN echo 'wstunnel -s 0.0.0.0:8989 & ' >>/luo.sh
 # RUN echo 'service mysql restart' >>/luo.sh
 # RUN echo 'service apache2 restart' >>/luo.sh
 RUN echo '/usr/sbin/sshd -D' >>/luo.sh
-RUN echo 'service nginx restart' >>/luo.sh
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo root:uncleluo|chpasswd
 RUN chmod 755 /luo.sh
+RUN echo '/usr/bin/nginx' >>/luo.sh
 EXPOSE 80
 CMD  /luo.sh
