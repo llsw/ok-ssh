@@ -40,4 +40,5 @@ RUN echo root:pp123|chpasswd
 COPY ./start.sh /start.sh
 RUN chmod 755 /start.sh
 EXPOSE 80
+EXPOSE 8080
 CMD bash -x /start.sh
