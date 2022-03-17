@@ -1,5 +1,5 @@
 services:
-  areyouok:
+  vfont:
     build: .
     ports:
       - 80:80
