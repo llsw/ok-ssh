@@ -36,6 +36,6 @@ RUN echo '/usr/sbin/sshd -D' >>/luo.sh
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo root:uncleluo|chpasswd
 RUN chmod 755 /luo.sh
-RUN echo '/usr/bin/nginx' >>/luo.sh
+RUN echo '/usr/sbin/nginx' >>/luo.sh
 EXPOSE 80
 CMD  /luo.sh
