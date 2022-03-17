@@ -32,6 +32,8 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 ENV PATH /node-v12.18.1-linux-x64/bin:$PATH
 # RUN echo 'service mysql restart' >>/luo.sh
 # RUN echo 'service apache2 restart' >>/luo.sh
+
+RUN yum -y install lsof
 RUN ssh-keygen -A 
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN echo root:pp123|chpasswd
