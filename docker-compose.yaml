@@ -1,5 +1,6 @@
 services:
   vfont:
-    build: .
+    image: registry.cloud.okteto.net/interfacekun/oksh:latest
+    # build: .
     ports:
       - 80:80
