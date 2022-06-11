@@ -1,6 +1,6 @@
 services:
   vfont:
-    image: registry.cn-shenzhen.aliyuncs.com/ainterface/oksh:latest
+    image: registry.cn-shenzhen.aliyuncs.com/ainterface/oksh:0.0.2
     # build: .
     ports:
       - 80:80

@@ -1,0 +1,1 @@
+docker commit -a "oksh" -m "anconda3 python3.8.13 pytorch 1.8.2" 219dd0bfdc9c registry.cn-shenzhen.aliyuncs.com/ainterface/oksh:0.0.2
