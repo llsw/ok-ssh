@@ -1,3 +1,3 @@
 
-FROM registry.cloud.okteto.net/interfacekun/oksh:latest
+FROM registry.cn-shenzhen.aliyuncs.com/ainterface/oksh:latest
 RUN ls
